@@ -1,0 +1,17 @@
+# Directories
+/out/
+/bin/
+/.gradle/
+/.idea/
+/.settings/
+
+# Sub-Directories
+**/out/
+**/bin/
+**/.gradle/
+**/.idea/
+**/.settings/
+
+# Files
+.project
+.classpath

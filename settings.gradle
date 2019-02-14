@@ -1,0 +1,2 @@
+rootProject.name = 'exqudens-grpc-one'
+include 'exqudens-grpc-one-api', 'exqudens-grpc-one-server', 'exqudens-grpc-one-client'

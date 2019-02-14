@@ -1,0 +1,50 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.0'
+    }
+}
+
+apply plugin: 'com.google.protobuf'
+
+sourceSets.main.proto.srcDirs = [sourceSets.main.resources.srcDirs.last().getPath() + '/proto']
+
+protobuf {
+    protoc {
+        artifact = "com.google.protobuf:protoc:3.6.1"
+    }
+    plugins {
+        grpc {
+            artifact = 'io.grpc:protoc-gen-grpc-java:1.18.0'
+        }
+    }
+    generateProtoTasks {
+        all().each { task ->
+            task.builtins {
+                java {
+                    outputSubDir = 'java'
+                }
+            }
+            task.plugins {
+                grpc {
+                    outputSubDir = 'java'
+                }
+            }
+        }
+    }
+    generatedFilesBaseDir = "$projectDir/src"
+}
+
+project.afterEvaluate {
+    project.tasks['generateProto'].execute()
+}
+
+dependencies {
+
+    compile group: 'io.grpc', name: 'grpc-protobuf', version: '1.18.0'
+    compile group: 'io.grpc', name: 'grpc-stub',     version: '1.18.0'
+    compile group: 'io.grpc', name: 'grpc-netty',    version: '1.18.0'
+
+}

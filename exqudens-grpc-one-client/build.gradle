@@ -1,0 +1,7 @@
+dependencies {
+
+    compile project(':exqudens-grpc-one-api')
+
+    //compile group: 'io.grpc', name: 'grpc-netty',    version: '1.18.0'
+
+}
