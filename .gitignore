@@ -1,17 +1,15 @@
 # Directories
-/out/
-/bin/
-/.gradle/
-/.idea/
-/.settings/
-
-# Sub-Directories
-**/out/
-**/bin/
-**/.gradle/
-**/.idea/
-**/.settings/
+.gradle/
+.idea/
+.settings/
+build/
+out/
+bin/
 
 # Files
 .project
 .classpath
+*.iml
+*.ipr
+*.iws
+.DS_Store
